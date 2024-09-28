@@ -1,0 +1,82 @@
+/* Card container styling */
+.card-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: darkslategray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for card effect */
+    display: flex;
+    flex-direction: column;
+    /*align-items: stretch; !* Ensure child elements stretch to the full width *!*/
+    gap: 5px; /* Add space between the child components */
+    box-sizing: border-box;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    align-items: center; /* Center all child elements horizontally */
+}
+
+/* General input and button styles for all components */
+.search-input, input[type="file"], .generate-button, .search-button{
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin: 10px auto; /* Center the input horizontally */
+    width: 700px; /* Take full width of the container */
+    max-width: 500px; /* Set a max width to avoid over-stretching */
+    box-sizing: border-box; /* Ensure padding doesn't affect the total width */
+}
+
+/* General input and button styles for all components */
+.file-upload-button {
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin: 10px auto; /* Center the input horizontally */
+    width: 300px; /* Take full width of the container */
+    max-width: 500px; /* Set a max width to avoid over-stretching */
+    box-sizing: border-box; /* Ensure padding doesn't affect the total width */
+}
+
+/* Increase the width of the input field to the card's edges */
+.search-input {
+    margin: 0; /* Remove margins so it stretches fully */
+}
+
+/* Styling for the buttons */
+.search-button, .generate-button, .file-upload-button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.search-button:hover, .generate-button:hover, .file-upload-button:hover {
+    background-color: #333;
+}
+
+/* Focus effect for inputs */
+.search-input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Ensure the file input button matches the rest of the buttons */
+input[type="file"] {
+    padding: 15px 20px;
+}
+
+

@@ -1,0 +1,33 @@
+.flashcard-button {
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    align-items: center;     /* Vertically align within the parent */
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;       /* Center the container horizontally with auto margins */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Styling for the generate button */
+.generate-button {
+    width: 100%;
+    max-width: 500px;        /* Set a max width to make sure the button doesn't stretch too wide */
+    padding: 12px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;     /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.generate-button:hover {
+    background-color: #333;
+}

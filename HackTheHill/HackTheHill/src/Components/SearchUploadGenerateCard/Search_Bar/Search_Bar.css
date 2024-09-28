@@ -1,0 +1,55 @@
+/* General styles for both components */
+.search-bar, .file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 700px; /* Limit the width of the components */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and borders in the width calculation */
+    margin: 0 auto; /* Center the component horizontally */
+}
+
+/* Styling for the search input field */
+.search-input {
+    width: 100%;
+    padding: 12px 20px; /* Adjust padding for sleekness */
+    margin-bottom: 20px;
+    border-radius: 30px; /* Rounded corners for a more modern look */
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center; /* Center the text inside the input */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: border-color 0.3s ease; /* Smooth transition on hover/focus */
+}
+
+/* Styling for the buttons (both search and file upload) */
+.search-button, .file-upload button {
+    width: 100%; /* Make buttons the same width as the input */
+    max-width: 500px;
+    padding: 12px 20px; /* Adjust padding */
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded corners for sleekness */
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center; /* Center text */
+    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for buttons */
+.search-button:hover, .file-upload button:hover {
+    background-color: #333;
+}
+
+/* Focus effect for the search input */
+.search-input:focus {
+    border-color: #333; /* Change border color on focus */
+    outline: none;
+}
