@@ -1,31 +1,3 @@
-// const cheerio = require('cheerio');
-
-// async function scrapeWeb(url) {
-//     try {
-//         const fetch = (await import('node-fetch')).default;  // Use dynamic import
-//         const response = await fetch(url);
-//         const html = await response.text();
-//         const $ = cheerio.load(html);
-
-//         const textContent = $('body').text();
-//         return textContent;
-//     } catch (error) {
-//         console.error('Error scraping web:', error);
-//     }
-// }
-
-// // Test the function
-// (async () => {
-//     const url = 'https://www.markdownguide.org/cheat-sheet/';  // Replace with the desired URL
-//     const data = await scrapeWeb(url);
-//     console.log(data);
-// })();
-
-
-
-
-
-
 const cheerio = require('cheerio');
 const { MongoClient } = require('mongodb');  // Import MongoDB client
 const fetch = require('node-fetch'); // Dynamic import for fetch
@@ -33,7 +5,7 @@ const fetch = require('node-fetch'); // Dynamic import for fetch
 // MongoDB connection URL and database name
 const uri = 'mongodb://localhost:27017';  // Change this to your MongoDB connection URI
 const dbName = 'webScraperDB';            // Replace with your database name
-const collectionName = 'scrapedContent';   // Replace with your collection name
+const collectionName = 'WebScrapedContent';   // Replace with your collection name
 
 // Function to scrape the web
 async function scrapeWeb(url) {
@@ -76,7 +48,8 @@ async function saveToMongo(data) {
 
 // Scrape and store function
 (async () => {
-    const url = 'https://www.markdownguide.org/cheat-sheet/';  // Replace with the desired URL
+    // const url = 'https://www.markdownguide.org/cheat-sheet/';  // Replace with the desired URL
+    const url = 'https://docs.spring.io/spring-boot/docs/2.7.8/reference/htmlsingle/';  // Replace with the desired URL
     console.log('Starting the web scraping process...');  // Log the start of the process
 
     const scrapedData = await scrapeWeb(url);

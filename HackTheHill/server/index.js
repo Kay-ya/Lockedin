@@ -32,7 +32,10 @@ app.post('/upload', async (req, res) => {
         // Process the extracted text
         const flashcards = extractFlashcards(parsedText);
 
-        res.json({ message: 'PDF uploaded and parsed successfully', flashcards });
+        // Process the flashcards with OpenAI and store them
+        await processContentAndStoreFlashcards(flashcards);
+
+        res.json({ message: 'PDF uploaded, parsed, and flashcards stored successfully', flashcards });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to upload or parse PDF' });

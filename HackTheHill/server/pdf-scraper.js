@@ -6,7 +6,7 @@ const { MongoClient } = require('mongodb');
 const uri = 'mongodb://localhost:27017'; // Replace with your MongoDB URI
 const client = new MongoClient(uri);
 const dbName = 'webScraperDB';
-const collectionName = 'scrapedContent';
+const collectionName = 'PdfScrapedContent';
 
 // Function to parse the PDF
 async function parsePdf(filePath) {
@@ -41,7 +41,7 @@ async function processPdf(filePath) {
     try {
         console.log("Reading and parsing PDF...");
         const textContent = await parsePdf(filePath);
-        console.log("PDF content extracted:\n", textContent);
+        //console.log("PDF content extracted:\n", textContent);
 
         console.log("Storing content in MongoDB...");
         await storeInMongo(textContent);
@@ -51,5 +51,5 @@ async function processPdf(filePath) {
 }
 
 // Test the script
-const pdfFilePath = 'C:/Users/thean/Downloads/Anjali_Patel_Sep_2024.pdf';  // Replace with your PDF file path
+const pdfFilePath = 'C:/Users/thean/Downloads/proposal.pdf';  // Replace with your PDF file path
 processPdf(pdfFilePath);

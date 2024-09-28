@@ -1,21 +1,21 @@
 // server/controllers/flashcardController.js
 const fetchScrapedData = require('../models/scrapedContentModel'); // Adjust based on where you place the fetch function
-const generateFlashcards = require('../services/openAIService');
+const { fetchDataFromOpenAI } = require('../services/openAIService');
 const Flashcard = require('../models/flashcardModel');
 
-async function processContentAndStoreFlashcards() {
+async function processContentAndStoreFlashcards(flashcards) {
   try {
-    const scrapedContent = await fetchScrapedData();
-    if (!scrapedContent) {
-      console.error('No scraped content found');
+    if (!flashcards || flashcards.length === 0) {
+      console.error('No flashcards found');
       return;
     }
 
-    const flashcardsData = await generateFlashcards(scrapedContent);
-    if (!flashcardsData) {
-      console.error('No flashcard data generated');
-      return;
-    }
+    // Generate data for each flashcard using OpenAI
+    const flashcardsData = await Promise.all(flashcards.map(async (flashcard) => {
+      const prompt = `Generate detailed flashcard data for: ${flashcard.term}`;
+      const generatedData = await fetchDataFromOpenAI(prompt);
+      return { term: flashcard.term, definition: generatedData };
+    }));
 
     await storeFlashcards(flashcardsData);
   } catch (error) {
@@ -33,4 +33,4 @@ async function storeFlashcards(flashcardData) {
   }
 }
 
-module.exports = processContentAndStoreFlashcards;
+module.exports = { processContentAndStoreFlashcards };
