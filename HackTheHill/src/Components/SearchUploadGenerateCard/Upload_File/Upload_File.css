@@ -1,0 +1,31 @@
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Styling for the upload button */
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #333;
+}
+
+/* Styling for the file name display */
+p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
