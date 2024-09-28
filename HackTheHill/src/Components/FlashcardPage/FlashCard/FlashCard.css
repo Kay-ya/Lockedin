@@ -1,0 +1,44 @@
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.flashcard {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 300px;
+    transition: transform 0.2s ease;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+.flashcard-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.flashcard-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flashcard-button:hover {
+    background-color: #0056b3;
+}

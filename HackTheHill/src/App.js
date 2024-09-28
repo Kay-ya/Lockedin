@@ -1,27 +1,22 @@
-// Import necessary modules from React
 import React from 'react';
-import Footer from './Components/Footer/Footer.js'; // Import the Footer component
-
-
-// Import the Navbar component
-import Navbar from './Components/Navbar/Navbar.js';
-
-// Import the SearchBar and FileUpload components
-import SearchUploadGenerateCard from './Components/SearchUploadGenerateCard/SearchUploadGenerateCard.js'; // Import the Card component
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainLayout from './Components/MainLayout/MainLayout.js'; // Import the new MainLayout component
+import FlashcardPage from './Components/FlashcardPage/FlashcardPage.js'; // Import the new FlashcardPage component
 
 function App() {
     return (
-        <div className="App">
-            {/* Render the Navbar */}
-            <Navbar />
+        <Router>
+            <div className="App">
+                {/* Use Routes to manage routing */}
+                <Routes>
+                    {/* Define the route for the MainLayout component */}
+                    <Route path="/" element={<MainLayout />} />
 
-            {/* Render the Card component */}
-            <SearchUploadGenerateCard />
-
-            {/* Render the Footer component */}
-            <Footer />
-        </div>
+                    {/* Flashcard page route */}
+                    <Route path="/flashcards" element={<FlashcardPage />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

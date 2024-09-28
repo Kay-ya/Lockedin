@@ -1,0 +1,17 @@
+.footer {
+    width: 100%; /* Full width of the page */
+    padding: 20px 0;
+    background-color: #333; /* Dark background color */
+    color: white;
+    text-align: center;
+    position: fixed; /* Fix the footer at the bottom of the page */
+    bottom: 0; /* Stick to the bottom */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Make sure it's on top of other elements */
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #bbb;
+}

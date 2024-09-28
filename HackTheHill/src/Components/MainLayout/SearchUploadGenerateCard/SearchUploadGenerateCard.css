@@ -1,0 +1,103 @@
+/* Card container styling */
+.card-container {
+    margin-left: 500px;
+    margin-top: 80px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    border-radius: 50px;
+    background-color: darkslategray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for card effect */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center; /* Center all child elements horizontally */
+}
+
+/* Flex container for horizontal alignment */
+.flex-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px; /* Adjust space between URL input and file upload */
+    margin-bottom: 20px; /* Add margin below the row */
+}
+
+/* Adjust styles for SearchBar and FileUpload to fit side by side */
+.search-bar, .file-upload {
+    flex: 1;
+}
+
+/* General input and button styles for all components */
+.search-input, input[type="file"], .generate-button, .search-button {
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    width: 100%; /* Ensure full width for input and buttons */
+    box-sizing: border-box;
+}
+
+.file-upload-button {
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Styling for the buttons */
+.search-button, .generate-button, .file-upload-button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.search-button:hover, .generate-button:hover, .file-upload-button:hover {
+    background-color: #333;
+}
+
+/* Focus effect for inputs */
+.search-input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Overlay for the modal */
+.level-selection-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+/* Modal for Level Selection - centered on the screen */
+.level-selection-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    text-align: center;
+}

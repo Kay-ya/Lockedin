@@ -1,0 +1,69 @@
+/* Return button styling */
+.return-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.return-button:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Style for the container holding the level buttons */
+.level-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+/* Level button styles */
+.level-button {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+/* Selected button style */
+.level-button.selected {
+    background-color: black;
+    color: white;
+    border: 2px solid blue;
+}
+
+/* Hover effect for buttons */
+.level-button:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Text for showing selected level */
+.selected-text {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Arrow icon to represent moving to flashcards */
+.next-arrow {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.next-arrow:hover {
+    transform: translateX(5px);
+}
