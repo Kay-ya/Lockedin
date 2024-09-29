@@ -61,3 +61,6 @@ async function saveToMongo(data) {
         console.log('No data scraped from the URL.');  // Log if scraping fails
     }
 })();
+
+
+module.exports = {scrapeWeb};

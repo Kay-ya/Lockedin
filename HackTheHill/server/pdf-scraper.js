@@ -53,3 +53,5 @@ async function processPdf(filePath) {
 // Test the script
 const pdfFilePath = 'C:/Users/thean/Downloads/proposal.pdf';  // Replace with your PDF file path
 processPdf(pdfFilePath);
+
+module.exports = {processPdf};

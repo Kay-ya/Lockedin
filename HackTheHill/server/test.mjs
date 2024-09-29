@@ -4,7 +4,7 @@ import dotenv from 'dotenv'; // Import dotenv
 import fetchScrapedData from './models/scrapedContentModel.js'; // Adjust the import path
 import connectDB from './config/db.js'; // Adjust the import path
 import { fetchDataFromOpenAI } from './services/openAIService.js'; // Adjust the import path
-import pdfParser from './pdf-parser.js'; // Import the entire module
+import pdfParser from './pdf-scraper.js'; // Import the entire module
 const { getPDFText } = pdfParser; // Destructure to get the function
 
 // Load environment variables
