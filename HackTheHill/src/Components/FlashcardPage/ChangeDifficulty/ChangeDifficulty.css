@@ -1,0 +1,11 @@
+.next-arrow {
+    top: 20px;
+    cursor: pointer;
+    width: 30px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.next-arrow:hover {
+    transform: translateX(5px);
+}

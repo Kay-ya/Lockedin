@@ -7,7 +7,7 @@
 }
 
 .flashcard {
-    background-color: grey;
+    background-color: gainsboro;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -16,29 +16,32 @@
     align-items: center;
     text-align: center;
     cursor: pointer;
-    padding: 300px;
+    padding: 200px;
     transition: transform 0.2s ease;
 }
 
-.flashcard:hover {
-    transform: scale(1.05);
-}
-
-.flashcard-controls {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.flashcard-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+/* Styling for the arrow buttons */
+.arrow-button {
+    mask-size: 20px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.flashcard-button:hover {
-    background-color: #0056b3;
+.arrow-button:hover {
+    transform: scale(2.0); /* Slight zoom effect on hover */
+}
+
+/* Left arrow button positioning */
+.arrow-left {
+    position: absolute;
+    left: 280px;
+}
+
+/* Right arrow button positioning */
+.arrow-right {
+    position: absolute;
+    right: 280px;
+     /* Move closer to the flashcard */
 }

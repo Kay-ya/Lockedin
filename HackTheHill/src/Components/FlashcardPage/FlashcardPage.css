@@ -1,0 +1,83 @@
+.flashcard-page {
+    padding: 20px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.flashcard-title {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.difficulty-label {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.difficulty-label.easy {
+    background-color: #dff9fb;
+    color: #22a6b3;
+}
+
+.difficulty-label.intermediate {
+    background-color: #f6e58d;
+    color: #f0932b;
+}
+
+.difficulty-label.advanced {
+    background-color: #ff7979;
+    color: white;
+}
+
+.difficulty-buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.difficulty-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.difficulty-button.selected {
+    background-color: #0056b3;
+}
+
+.difficulty-button:hover {
+    background-color: #0056b3;
+}
+
+/* Adjusting the arrow */
+.next-arrow {
+    font-size: 20px; /* Size of the arrow */
+    margin-left: 10px; /* Add space before the arrow */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle; /* Align it with the text baseline */
+}
+
+.next-arrow:hover {
+    transform: translateX(5px); /* Slight movement to the right on hover */
+
+}

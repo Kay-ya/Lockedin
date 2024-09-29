@@ -1,0 +1,105 @@
+/* Basic styles for the body */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+
+/* App container */
+.App {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1; /* Ensure app content stays above the background */
+}
+
+/* Sliding background effect */
+.sliding-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the background stays behind content */
+    overflow: hidden;
+}
+
+/* Individual sliding blocks */
+.sliding-block {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #333; /* Use a solid dark gray color */
+    animation: slide-vertical 10s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    font-weight: bold;
+    color: white;
+    opacity: 1; /* Start fully opaque */
+}
+
+/* Keyframes for vertical sliding blocks */
+@keyframes slide-vertical {
+    0% {
+        transform: translateY(-150px); /* Start above the screen */
+        opacity: 1; /* Fully visible at the start */
+    }
+    80% {
+        opacity: 1; /* Stay fully visible until 80% of the animation */
+        transform: translateY(100vh); /* Move down until 100vh */
+    }
+    100% {
+        opacity: 0; /* Fade out completely */
+        transform: translateY(120vh); /* Continue moving beyond the screen */
+    }
+}
+
+/* Customize individual blocks with letters */
+.sliding-block:nth-child(1) {
+
+    left: 20%;
+    top: -150px;
+    animation-duration: 4s;
+    background-color: #1a1a1a; /* Darker gray for the first block */
+}
+
+.sliding-block:nth-child(2) {
+    left: 40%;
+    top: -300px;
+    animation-duration: 5s;
+    background-color: #333; /* Standard gray for the second block */
+}
+
+.sliding-block:nth-child(3) {
+    left: 60%;
+    top: -450px;
+    animation-duration: 6s;
+    background-color: #4d4d4d; /* Lighter gray for the third block */
+}
+
+.sliding-block:nth-child(4) {
+    left: 80%;
+    top: -600px;
+    animation-duration: 7s;
+    background-color: #666; /* Even lighter gray for the fourth block */
+}
+
+/* Assign letters to the blocks using ::before pseudo-elements */
+.sliding-block:nth-child(1)::before {
+    content: "L";
+}
+
+.sliding-block:nth-child(2)::before {
+    content: "O";
+}
+
+.sliding-block:nth-child(3)::before {
+    content: "C";
+}
+
+.sliding-block:nth-child(4)::before {
+    content: "K";
+}

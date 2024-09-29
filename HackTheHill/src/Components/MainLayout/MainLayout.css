@@ -1,0 +1,25 @@
+.main-layout {
+    position: relative;
+    min-height: 100vh; /* Ensure the full viewport is covered */
+    background-color: darkslategray; /* Default background color */
+    overflow: hidden; /* Ensure sliding elements don't spill out */
+}
+
+.sliding-block {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 123, 255, 0.5); /* Transparent block color */
+    z-index: 0; /* Ensure background elements are beneath content */
+    animation: slide-block 10s infinite linear; /* Animation */
+}
+
+/* Define your keyframes */
+@keyframes slide-block {
+    0% {
+        transform: translateX(-150px); /* Start from outside the viewport */
+    }
+    100% {
+        transform: translateX(100vw); /* End off the screen */
+    }
+}

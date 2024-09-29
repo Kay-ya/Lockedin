@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './FlashCard.css';
 
-const FlashCard = () => {
+const FlashCard = ({ difficulty }) => {
     const [flashCards, setFlashCards] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [showAnswer, setShowAnswer] = useState(false); // State to track whether to show the answer
+    const [showAnswer, setShowAnswer] = useState(false);
 
-    // Function to load flashcards from the backend
+    // Function to load flashcards from the backend based on the selected difficulty
     const loadFlashCards = async () => {
         try {
-            const response = await fetch('https://your-backend-api.com/flashcards'); // Replace with your API URL
+            const response = await fetch(`https://your-backend-api.com/flashcards?difficulty=${difficulty}`); // Fetch flashcards based on difficulty
             if (!response.ok) {
                 throw new Error('Failed to fetch flashcards');
             }
@@ -17,6 +17,7 @@ const FlashCard = () => {
             setFlashCards(data);
         } catch (error) {
             console.log('Fetch failed, using fallback data:', error);
+            // Fallback mock data
             setFlashCards([
                 { id: 1, question: 'What is React?', answer: 'React is a JavaScript library for building user interfaces.' },
                 { id: 2, question: 'What is JSX?', answer: 'JSX is a syntax extension for JavaScript that looks similar to XML or HTML.' },
@@ -26,8 +27,8 @@ const FlashCard = () => {
     };
 
     useEffect(() => {
-        loadFlashCards(); // Load flashcards when the component mounts
-    }, []);
+        loadFlashCards(); // Load flashcards when the component mounts or when difficulty changes
+    }, [difficulty]);
 
     // Navigate to the previous flashcard
     const handlePrev = () => {
@@ -50,6 +51,12 @@ const FlashCard = () => {
         <div className="flashcard-container">
             {flashCards.length > 0 ? (
                 <>
+                    <img
+                        src="/arrow-left-2827 (1).png"
+                        alt="Previous"
+                        onClick={handlePrev}
+                        className="arrow-button arrow-left"
+                    />
                     <div className="flashcard" onClick={handleCardClick}>
                         <h2>FlashCard {currentIndex + 1}</h2>
                         <p>
@@ -58,10 +65,12 @@ const FlashCard = () => {
                                 : flashCards[currentIndex].question} {/* Show question by default */}
                         </p>
                     </div>
-                    <div className="flashcard-controls">
-                        <button onClick={handlePrev} className="flashcard-button">Previous</button>
-                        <button onClick={handleNext} className="flashcard-button">Next</button>
-                    </div>
+                    <img
+                        src="/arrow-next-2825 (1).png"
+                        alt="Next"
+                        onClick={handleNext}
+                        className="arrow-button arrow-right"
+                    />
                 </>
             ) : (
                 <p>Loading flashcards...</p>

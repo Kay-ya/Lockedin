@@ -1,7 +1,7 @@
 /* Card container styling */
 .card-container {
-    margin-left: 500px;
-    margin-top: 80px;
+    margin-left: 480px;
+    margin-top: 300px;
     width: 100%;
     max-width: 1000px;
     padding: 50px;
@@ -12,6 +12,39 @@
     flex-direction: column;
     gap: 5px;
     align-items: center; /* Center all child elements horizontally */
+    position: relative; /* Important for the background animation */
+    overflow: hidden; /* Ensure the animated circle doesn't overflow */
+}
+
+/* Adding a more dramatic background animation */
+.card-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: circle-expand 4s infinite ease-in-out;
+    z-index: 0; /* Ensure it stays in the background */
+    opacity: 0.7; /* Starting opacity for the dramatic effect */
+}
+
+@keyframes circle-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Start small */
+        opacity: 0.6; /* Semi-transparent */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(3); /* Expand dramatically */
+        opacity: 0.2; /* Fade out as it expands */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0); /* Contract back to original */
+        opacity: 0.6; /* Fade back in */
+    }
 }
 
 /* Flex container for horizontal alignment */
@@ -21,11 +54,7 @@
     justify-content: space-between;
     gap: 20px; /* Adjust space between URL input and file upload */
     margin-bottom: 20px; /* Add margin below the row */
-}
-
-/* Adjust styles for SearchBar and FileUpload to fit side by side */
-.search-bar, .file-upload {
-    flex: 1;
+    z-index: 1; /* Ensure the content stays above the animated background */
 }
 
 /* General input and button styles for all components */
@@ -39,6 +68,7 @@
     transition: border-color 0.3s ease;
     width: 100%; /* Ensure full width for input and buttons */
     box-sizing: border-box;
+    z-index: 1; /* Ensure inputs/buttons stay above background */
 }
 
 .file-upload-button {
@@ -51,6 +81,7 @@
     transition: border-color 0.3s ease;
     width: 100%;
     box-sizing: border-box;
+    z-index: 1; /* Ensure the button stays above the background */
 }
 
 /* Styling for the buttons */
@@ -63,7 +94,6 @@
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect for buttons */
 .search-button:hover, .generate-button:hover, .file-upload-button:hover {
     background-color: #333;
 }
