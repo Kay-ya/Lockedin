@@ -20,6 +20,24 @@ async function parsePdf(filePath) {
     }
 }
 
+// // Function to store data in MongoDB
+// async function storeInMongo(textContent) {
+//     try {
+//         await client.connect();
+//         console.log("Connected successfully to MongoDB server");
+
+//         const db = client.db(dbName);
+//         const collection = db.collection(collectionName);
+
+//         const result = await collection.insertOne({ content: textContent });
+//         console.log("Data successfully stored in MongoDB", result.insertedId);
+//     } finally {
+//         await client.close();
+//     }
+// }
+
+
+
 // Function to store data in MongoDB
 async function storeInMongo(textContent) {
     try {
@@ -29,12 +47,21 @@ async function storeInMongo(textContent) {
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
 
-        const result = await collection.insertOne({ content: textContent });
+        // Convert textContent to string explicitly before storing
+        const stringContent = String(textContent);
+
+        // Insert the string content into the collection
+        const result = await collection.insertOne({ content: stringContent });
+
         console.log("Data successfully stored in MongoDB", result.insertedId);
+    } catch (error) {
+        console.error("Error storing data in MongoDB:", error);
     } finally {
         await client.close();
     }
 }
+
+
 
 // Main function to handle everything
 async function processPdf(filePath) {
@@ -43,6 +70,8 @@ async function processPdf(filePath) {
         const textContent = await parsePdf(filePath);
         //console.log("PDF content extracted:\n", textContent);
 
+        console.log("typeeeeee: "+ typeof textContent);
+
         console.log("Storing content in MongoDB...");
         await storeInMongo(textContent);
     } catch (error) {
@@ -50,8 +79,20 @@ async function processPdf(filePath) {
     }
 }
 
+
+
+
+
+
+
+
+
+
 // Test the script
 const pdfFilePath = 'C:/Users/thean/Downloads/proposal.pdf';  // Replace with your PDF file path
-processPdf(pdfFilePath);
+
+//console.log(result.response.text());
+
+//console.log("pdfffffffff: "+ test.data.text);
 
 module.exports = {processPdf};

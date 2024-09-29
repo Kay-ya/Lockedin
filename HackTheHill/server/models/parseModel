@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+
+// Define the schema for the data
+const parsedSchema = new mongoose.Schema({
+    // Remove the custom _id field; MongoDB will create an ObjectId by default
+    content: { type: String, required: true } // Specify that content is required
+});
+
+// Create a Mongoose model from the schema
+const ParsedInfo = mongoose.model('ParsedInfo', parsedSchema);
+
+// Export the model for use in other parts of the application
+module.exports = ParsedInfo;
